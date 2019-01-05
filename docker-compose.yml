@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+  web-client-00:
+    build:
+      context: api/
+    environment:
+      PORT: 3000
+      TIMEOUT: 10000
+    ports:
+      - 3000:3000
+    networks:
+      - api
+
+  web-client-01:
+    build:
+      context: api/
+    environment:
+      PORT: 3001
+      TIMEOUT: 20000
+    ports:
+      - 3001:3001
+    networks:
+      - api
+
+  web-client-02:
+    build:
+      context: api/
+    environment:
+      PORT: 3002
+      TIMEOUT: 30000
+    ports:
+      - 3002:3002
+    networks:
+      - api
+
+  web-client-03:
+    build:
+      context: api/
+    environment:
+      PORT: 3003
+      TIMEOUT: 40000
+    ports:
+      - 3003:3003
+    networks:
+      - api
+
+  proxy:
+    build:
+      context: proxy/
+    ports:
+      - 5000:80
+      - 5001:5001
+    networks:
+      - api
+
+networks:
+  api:
