@@ -1,4 +1,4 @@
-use super::CONFIG;
+use super::config::CONFIG;
 use std::time::Duration;
 
 #[derive(Serialize, Deserialize)]

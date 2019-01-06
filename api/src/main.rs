@@ -15,12 +15,8 @@ mod routes;
 use rocket::config::Config;
 use std::sync::atomic::AtomicUsize;
 
-lazy_static! {
-    static ref CONFIG: config::Config = { config::Config::new() };
-}
-
 fn main() {
-    let config = &CONFIG;
+    let config = &config::CONFIG;
 
     let rocket_config = Config::build(config.env)
         .address(config.host)

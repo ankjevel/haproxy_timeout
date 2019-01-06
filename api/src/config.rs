@@ -11,7 +11,7 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn new() -> Self {
+    fn new() -> Self {
         let port = match env::var("PORT") {
             Ok(port) => port.parse().unwrap(),
             Err(_) => 3000,
@@ -50,4 +50,8 @@ impl Config {
             env,
         }
     }
+}
+
+lazy_static! {
+    pub static ref CONFIG: Config = { Config::new() };
 }

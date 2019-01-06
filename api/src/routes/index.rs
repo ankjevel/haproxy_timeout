@@ -1,6 +1,6 @@
 use super::super::middleware::Timeout;
 use super::super::models::Message;
-use super::super::CONFIG;
+use super::super::config::CONFIG;
 
 use rocket::State;
 use rocket_contrib::json::Json;
